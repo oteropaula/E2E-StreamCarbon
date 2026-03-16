@@ -42,7 +42,7 @@ icon16.png, icon48.png, icon128.png
 ```
 
 Once installed, you'll see the this icon in your browser toolbar:
-<img src="final_report/stream_carbon/icon48.png" alt="co2tracker toolbar icon" width="40">
+<img src="stream_carbon/icon48.png" alt="co2tracker toolbar icon" width="40">
 
 ### Using the extension
 1. **Navigate to YouTube** and play any video
