@@ -1,6 +1,6 @@
 # E2E-StreamCarbon: An End-to-End Measurement Framework for Streaming Emissions
 
-<img src="methodology.png" alt="methodology scheme" width="40">
+<img src="methodology.png" alt="methodology scheme" width="500">
 
 **See the carbon footprint of your YouTube streaming in real-time.**
 
@@ -17,13 +17,16 @@ This browser extension overlays estimated CO₂ emissions directly on YouTube vi
   - 🟢 Green: Under 10g CO₂
   - 🟡 Yellow: 10-30g CO₂
   - 🔴 Red: Over 30g CO₂
+ - **Visual water bottle equivalence:**
+  - Shows a vertical bottle that fills proportionally to the estimated CO₂ emissions
+  - Displays the equivalent liters of water consumed for streaming (data center + network usage)
 
 ### Installation
 
 ### For Chrome/Chromium-based browsers:
 
-1. **Download the extension files** (clone this repo `git clone https://github.com/oteropaula/SUSCOMP-2025-TripleBit` or download as ZIP)
-2. The folder that you will need is the `stream_carbon` one (it is inside the `final_report` one)
+1. **Download the extension files** (clone this repo `git clone https://github.com/oteropaula/E2E-StreamCarbon` or download as ZIP)
+2. The folder that you will need is the `stream_carbon` one
 3. Open Chrome and go to: `chrome://extensions/`
 4. Enable **Developer mode** (toggle in top-right corner)
 5. Click **"Load unpacked"**
@@ -78,7 +81,7 @@ Once installed, you'll see the this icon in your browser toolbar:
 #### Quick tips
 - **480p** is usually sufficient for small screens
 - **720p** offers a good balance of quality and impact
-- **1080p+** is best saved for important content
+- **1080p** is best saved for important content
 - **Auto-quality** often chooses higher than needed
 
 #### Future improvements
@@ -102,5 +105,3 @@ Found a bug? Have an idea? We'd love your help!
 ---
 
 **Remember**: Every gram counts! By being aware of your digital carbon footprint, you're already taking a step toward more sustainable streaming habits.
-
-*Note: This extension provides estimates for educational purposes. Actual emissions may vary based on numerous factors including your local grid, device efficiency, and network conditions.*
