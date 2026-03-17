@@ -126,7 +126,7 @@ function updateCO2Display() {
 
     const MAX_CO2 = 500;
     const SEGMENTS = 5;
-    const SEGMENT_SIZE = MAX_CO2 / SEGMENTS; // 100g cada nivel
+    const SEGMENT_SIZE = MAX_CO2 / SEGMENTS; // 100g each level
 
     // limited to max 500
     const cappedCO2 = Math.min(co2Actual, MAX_CO2);
@@ -135,17 +135,23 @@ function updateCO2Display() {
     const activeSegments = Math.ceil(cappedCO2 / SEGMENT_SIZE);
 
     // each segment is a 20%
-    const waterPercent = (activeSegments / SEGMENTS) * 100;
+    let waterPercent = (activeSegments / SEGMENTS) * 100; 
 
     // Water consumption calculation (Data center + Network transmission)
+    let litersValue = sizeGB * (
+        (WATER_DC_KWH_PER_GB * WUE_DC) +
+        (WATER_NETWORK_KWH_PER_GB * WUE_NETWORK)
+    );
 
-    const liters = (
-        sizeGB * (
-            (WATER_DC_KWH_PER_GB * WUE_DC) +
-            (WATER_NETWORK_KWH_PER_GB * WUE_NETWORK)
-        )
-    ).toFixed(2);
-    
+    let litersDisplay;
+    if (litersValue < 0.1) {
+        litersDisplay = `${(litersValue * 1000).toFixed(0)} mL`;
+        waterPercent = Math.max(waterPercent, 5); 
+    } else {
+        litersDisplay = `${litersValue.toFixed(2)} L`;
+    }
+        
+            
     // Calculate emissions per minute for comparison
     const sizePerMinuteGB = estimateSizePerMinute(resolution);
     const co2PerMinute = (sizePerMinuteGB * CO2_PER_GB).toFixed(2);
@@ -226,7 +232,7 @@ function updateCO2Display() {
                     top:0; left:0; width:100%; height:100%;
                     display:flex; align-items:center; justify-content:center;
                     font-size:10px; color:#000; font-weight:bold;
-                    pointer-events:none;">${liters}L </div>
+                    pointer-events:none;">${litersDisplay}</div>
             </div>
 
         </div>
